@@ -6,6 +6,7 @@
  */
 
 #include "ISO14443-3A.h"
+#include "Log.h"
 
 #define CRC_INIT		0x6363
 #define CRC_INIT_R		0xC6C6 /* Bit reversed */
@@ -83,11 +84,12 @@ bool ISO14443ACheckCRCA(const void *Buffer, uint16_t ByteCount) {
         Checksum = _crc_ccitt_update(Checksum, Byte);
     }
 
+    LogEntry((DataPtr[0] == ((Checksum >> 0) & 0xFF)) && (DataPtr[1] == ((Checksum >> 8) & 0xFF)));
     return (DataPtr[0] == ((Checksum >> 0) & 0xFF)) && (DataPtr[1] == ((Checksum >> 8) & 0xFF));
 }
 #endif
 
-#if 1
+#if 0
 bool ISO14443ASelect(void *Buffer, uint16_t *BitCount, uint8_t *UidCL, uint8_t SAKValue) {
     uint8_t *DataPtr = (uint8_t *) Buffer;
     uint8_t NVB = DataPtr[1];
