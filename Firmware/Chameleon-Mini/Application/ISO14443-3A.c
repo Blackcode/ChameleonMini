@@ -87,7 +87,7 @@ bool ISO14443ACheckCRCA(const void *Buffer, uint16_t ByteCount) {
 }
 #endif
 
-#if USE_HW_CRC
+#if 1
 bool ISO14443ASelect(void *Buffer, uint16_t *BitCount, uint8_t *UidCL, uint8_t SAKValue) {
     uint8_t *DataPtr = (uint8_t *) Buffer;
     uint8_t NVB = DataPtr[1];
