@@ -53,7 +53,6 @@ INLINE void ApplicationGetUid(ConfigurationUidType Uid) {
 
 INLINE void ApplicationSetUid(ConfigurationUidType Uid) {
     ActiveConfiguration.ApplicationSetUidFunc(Uid);
-    LogEntry("TEST TEST TEST");
     LogEntry(LOG_INFO_UID_SET, Uid, ActiveConfiguration.UidSize);
 }
 
