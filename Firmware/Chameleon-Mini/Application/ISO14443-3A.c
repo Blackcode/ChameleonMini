@@ -85,6 +85,7 @@ bool ISO14443ACheckCRCA(const void *Buffer, uint16_t ByteCount) {
     }
 
     LogEntry("TEST FROM ME: " + (DataPtr[0] == ((Checksum >> 0) & 0xFF)) && (DataPtr[1] == ((Checksum >> 8) & 0xFF)));
+
     return (DataPtr[0] == ((Checksum >> 0) & 0xFF)) && (DataPtr[1] == ((Checksum >> 8) & 0xFF));
 }
 #endif
